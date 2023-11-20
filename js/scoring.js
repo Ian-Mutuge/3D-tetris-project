@@ -1,9 +1,14 @@
 let score = 0;
 
-export function clearLines(completedLines) {
+function clearLines(completedLines) {
   score += completedLines * 100;
 }
 
-export function getScore() {
+function getScore() {
   return score;
 }
+
+module.exports = {
+  clearLines,
+  getScore
+};
