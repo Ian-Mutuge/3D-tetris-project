@@ -1,4 +1,4 @@
-export function handleUserInput(activeTetromino) {
+function handleUserInput(activeTetromino) {
   document.addEventListener('keydown', (event) => {
     switch (event.key) {
       case 'ArrowDown':
@@ -20,3 +20,7 @@ export function handleUserInput(activeTetromino) {
     }
   });
 }
+
+module.exports = {
+  handleUserInput
+};

@@ -1,6 +1,6 @@
-import * as THREE from 'three';
+const THREE = require('three');
 
-export function createGameBoard() {
+function createGameBoard() {
   const gameBoard = new THREE.Object3D();
 
   // Create game board blocks
@@ -15,3 +15,5 @@ export function createGameBoard() {
 
   return gameBoard;
 }
+
+module.exports = { createGameBoard };
