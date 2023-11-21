@@ -4,7 +4,7 @@ if (!window.requestAnimationFrame) {
             window.mozRequestAnimationFrame ||
             window.oRequestAnimationFrame ||
             window.msRequestAnimationFrame ||
-            function (/* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+            function (/* function FrameRequestCallback / callback, / DOMElement Element */ element) {
                 window.setTimeout(callback, 1000 / 60);
             };
     })();
@@ -12,14 +12,44 @@ if (!window.requestAnimationFrame) {
 
 window.Tetris = window.Tetris || {};
 Tetris.sounds = {};
+var mouseDown = false;
+var mouseX = 0;
+var mouseY = 0;
 
+function onMouseDown(event) {
+    event.preventDefault();
+    mouseDown = true;
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+}
+
+function onMouseMove(event) {
+    if (mouseDown) {
+        var deltaX = event.clientX - mouseX;
+        var deltaY = event.clientY - mouseY;
+
+        Tetris.camera.position.x += deltaX * 0.5; // Adjust the sensitivity by changing the multiplier
+        Tetris.camera.position.y -= deltaY * 0.5;
+
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+    }
+}
+
+function onMouseUp(event) {
+    mouseDown = false;
+}
+
+document.addEventListener('mousedown', onMouseDown, false);
+document.addEventListener('mousemove', onMouseMove, false);
+document.addEventListener('mouseup', onMouseUp, false);
 Tetris.init = function () {
-    Tetris.sounds["theme"] = document.getElementById("audio_theme");  
-    Tetris.sounds["collision"] = document.getElementById("audio_collision");  
-    Tetris.sounds["move"] = document.getElementById("audio_move");  
-    Tetris.sounds["gameover"] = document.getElementById("audio_gameover");  
-    Tetris.sounds["score"] = document.getElementById("audio_score");  
-     Tetris.sounds["theme"].muted = true;
+    Tetris.sounds["theme"] = document.getElementById("audio_theme");
+    Tetris.sounds["collision"] = document.getElementById("audio_collision");
+    Tetris.sounds["move"] = document.getElementById("audio_move");
+    Tetris.sounds["gameover"] = document.getElementById("audio_gameover");
+    Tetris.sounds["score"] = document.getElementById("audio_score");
+
     Tetris.sounds["theme"].play();
     // set the scene size
     var WIDTH = window.innerWidth,
@@ -39,9 +69,9 @@ Tetris.init = function () {
         NEAR,
         FAR);
     Tetris.scene = new THREE.Scene();
-
+Tetris.camera.position.set(0, -600, 900);
+Tetris.camera.lookAt(new THREE.Vector3(0, -300, 450));
     // the camera starts at 0,0,0 so pull it back
-    Tetris.camera.position.z = 600;
     Tetris.scene.add(Tetris.camera);
 
     // start the renderer
@@ -54,7 +84,7 @@ Tetris.init = function () {
     var boundingBoxConfig = {
         width:360,
         height:360,
-        depth:1200,
+        depth:600,
         splitX:6,
         splitY:6,
         splitZ:20
@@ -88,9 +118,9 @@ Tetris.start = function () {
     document.getElementById("menu").style.display = "none";
     Tetris.pointsDOM = document.getElementById("points");
     Tetris.pointsDOM.style.display = "block";
-	
+
     Tetris.sounds["theme"].pause();
-	
+
     Tetris.Block.generate();
     Tetris.animate();
 };
@@ -199,5 +229,28 @@ window.addEventListener('keydown', function (event) {
             Tetris.Block.rotate(0, -90, 0);
             break;
     }
-}, false);	
+}, false);
 
+
+window.addEventListener('keydown', function (event) {
+    var key = event.which ? event.which : event.keyCode;
+
+    switch (key) {
+        case 49: // 1
+            Tetris.camera.position.set(0, -600, 900);
+            Tetris.camera.lookAt(new THREE.Vector3(0, -300, 450));
+            break;
+        case 50: // 2
+            Tetris.camera.position.set(-600, 0, 450);
+            Tetris.camera.lookAt(new THREE.Vector3(300, 0, 225));
+            break;
+        case 51: // 3
+            Tetris.camera.position.set(0, 600, 900);
+            Tetris.camera.lookAt(new THREE.Vector3(0, 300, 450));
+            break;
+        case 52: // 4
+            Tetris.camera.position.set(600, 0, 450);
+            Tetris.camera.lookAt(new THREE.Vector3(-300, 0, 225));
+            break;
+    }
+}, false);
