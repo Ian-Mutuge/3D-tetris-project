@@ -252,5 +252,35 @@ window.addEventListener('keydown', function (event) {
             Tetris.camera.position.set(600, 0, 450);
             Tetris.camera.lookAt(new THREE.Vector3(-300, 0, 225));
             break;
+
+        case 48: // 0
+          Tetris.camera.position.set(0, 0, 600);
+Tetris.camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+
+            break;
+
+
+        case 27: // Esc key
+            if (Tetris.gameOver) {
+                // Game is already over, do nothing
+            } else {
+                // Pause the game
+                Tetris.gameOver = true;
+                Tetris.renderer.render(Tetris.scene, Tetris.camera); // Render the paused scene
+                // Display the pause popup
+                document.getElementById("pause_popup").style.display = "block";
+            }
+            break;
     }
 }, false);
+function resumeGame() {
+    // Hide the pause popup
+    document.getElementById("pause_popup").style.display = "none";
+
+    // Resume the game by setting gameOver to false
+    Tetris.gameOver = false;
+
+    // Start the game loop again
+    Tetris.animate();
+}
