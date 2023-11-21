@@ -1,85 +1,77 @@
-const THREE = require('three');
-const { loadTetrominoShapes } = require('./manager.js');
-const { createGameScene } = require('./scene.js');
-const { createGameBoard } = require('./board.js');
-const { spawnTetromino } = require('./manager.js');
-const { clearLines } = require('./scoring.js');
-const { showGameOver } = require('./gameover.js');
-const { handleUserInput } =require ('./input.js');
-const { playGameOverSound } = require('./gameaudio.js');
+// combinedMain.js
 
-// Initialize three.js renderer, scene, and camera
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0, 0, BOARD_HEIGHT / 2);
-camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-// Set up lighting
-const ambientLight = new THREE.AmbientLight(0x222222);
-scene.add(ambientLight);
-
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(1, 1, 1);
-scene.add(directionalLight);
-
-// Load tetromino shapes from JSON files
-const tetrominoShapes = loadTetrominoShapes();
-
-// Initialize game components
-const gameBoard = createGameBoard();
-let activeTetrominoGroup = spawnTetromino();
-
-// Handle game loop, including tetromino movement, collision detection, scoring, and rendering
-let completedLines = 0;
-
-while (true) {
-  // Check for collisions
-  if (checkCollisions(activeTetrominoGroup)) {
-    // Tetromino landed, check for completed lines
-    completedLines = checkCompletedLines(activeTetrominoGroup, gameBoard);
-    clearLines(completedLines);
-
-    // Update score and display game over if necessary
-    const newScore = getScore();
-    console.log(`Score: ${newScore}`);
-    if (activeTetrominoGroup.position.y <= 0) {
-      showGameOver();
-      playGameOverSound(); // Play game over sound effect
-      break; // Game over
+// RequireJS Configuration
+require.config({
+    paths: {
+        'three': 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min' // Use the Cloudflare CDN for 'three'
+        // Add other paths if needed
     }
+});
 
-    // Remove landed tetromino and spawn a new one
-    scene.remove(activeTetrominoGroup.mesh);
-    activeTetrominoGroup.mesh = null;
-    activeTetrominoGroup = spawnTetromino();
-  }
+// Main Application Logic
+define(['three'], function (THREE) {
+    // Constants for your game (assuming they are defined elsewhere)
+    const BOARD_WIDTH = 10;
+    const BOARD_HEIGHT = 20;
+    const BLOCK_SIZE = 1;
 
-  // Update tetromino position based on user input
-  handleUserInput(activeTetrominoGroup);
+    // Initialize three.js renderer, scene, and camera
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    //const scene = createGameScene(); // Assuming you have a function to set up your scene
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 0, BOARD_HEIGHT / 2);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-  // Render the game components
-  renderGameComponents();
-}
+    // Set up lighting
+    const ambientLight = new THREE.AmbientLight(0x222222);
+    //scene.add(ambientLight);
 
-function renderGameComponents() {
-  // Render the game board
-  const gameBoardGeometry = new THREE.PlaneGeometry(BOARD_WIDTH * BLOCK_SIZE, BOARD_HEIGHT * BLOCK_SIZE);
-  const gameBoardMaterial = new THREE.MeshBasicMaterial({ color: 0x222222 });
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(1, 1, 1);
+    //scene.add(directionalLight);
 
-  const gameBoardMesh = new THREE.Mesh(gameBoardGeometry, gameBoardMaterial);
-  gameBoardMesh.position.x = -BOARD_WIDTH / 2 * BLOCK_SIZE;
-  gameBoardMesh.position.y = BOARD_HEIGHT / 2 * BLOCK_SIZE;
-  gameBoardMesh.position.z = 0;
+    // Load tetromino shapes from JSON files
+    //const tetrominoShapes = loadTetrominoShapes();
 
-  scene.add(gameBoardMesh);
+    // Initialize game components
+    //const gameBoard = createGameBoard();
+    //let activeTetrominoGroup = spawnTetromino();
 
-  // Render the active tetromino
-  scene.add(activeTetrominoGroup.mesh);
+    // Handle game loop, including tetromino movement, collision detection, scoring, and rendering
+    let completedLines = 0;
 
-  // Render the score display
-  // (TODO: Implement score display rendering)
+    function gameLoop() {
+        // Check for collisions
+        //if (checkCollisions(activeTetrominoGroup)) {
+            // Tetromino landed, check for completed lines
+            completedLines = checkCompletedLines(activeTetrominoGroup, gameBoard);
+            clearLines(completedLines);
 
-  // Render the scene to the canvas
-  renderer.render(scene, camera);
-}
+            // Update score and display game over if necessary
+            const newScore = getScore();
+            console.log(`Score: ${newScore}`);
+            if (activeTetrominoGroup.position.y <= 0) {
+                showGameOver();
+                playGameOverSound(); // Play game over sound effect
+                return; // Game over
+            }
+
+            // Remove landed tetromino and spawn a new one
+            scene.remove(activeTetrominoGroup.mesh);
+            activeTetrominoGroup.mesh = null;
+            activeTetrominoGroup = spawnTetromino();
+        }
+
+        // Update tetromino position based on user input
+        //handleUserInput(activeTetrominoGroup);
+
+        // Render the game components
+        //renderGameComponents();
+
+        // Request the next animation frame
+       // requestAnimationFrame(gameLoop);
+    })
+
+    // Start the game loop
+    //gameLoop();
+

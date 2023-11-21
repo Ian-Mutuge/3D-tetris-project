@@ -1,9 +1,9 @@
 {
-  "name": " ",
+  "name": "requirejs",
   "version": "0.0.1",
-  "description": "",
-  "keywords": "",
-  "license": "",
+  "description": "A simple Tetris game implemented in Python using Pygame.",
+  "keywords": [],
+  "license": "MIT",
   "author": "",
   "scripts": {
     "build": "parcel build index.html",
@@ -15,7 +15,23 @@
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
+    "axios": "^1.6.2",
     "howler": "^2.2.4",
+    "package-name": "^0.1.0",
+    "request": "^2.88.2",
+    "requirejs": "^2.3.6",
     "three": "^0.158.0"
-  }
+  },
+  "main": "main.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ian-Mutuge/3D-tetris-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ian-Mutuge/3D-tetris-project/issues"
+  },
+  "homepage": "https://github.com/Ian-Mutuge/3D-tetris-project#readme"
 }
