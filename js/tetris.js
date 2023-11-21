@@ -84,7 +84,7 @@ Tetris.camera.lookAt(new THREE.Vector3(0, -300, 450));
     var boundingBoxConfig = {
         width:360,
         height:360,
-        depth:600,
+        depth:1200,
         splitX:6,
         splitY:6,
         splitZ:20
@@ -96,7 +96,7 @@ Tetris.camera.lookAt(new THREE.Vector3(0, -300, 450));
 
     var boundingBox = new THREE.Mesh(
         new THREE.CubeGeometry(boundingBoxConfig.width, boundingBoxConfig.height, boundingBoxConfig.depth, boundingBoxConfig.splitX, boundingBoxConfig.splitY, boundingBoxConfig.splitZ),
-        new THREE.MeshBasicMaterial({ color:0x0000ff, wireframe:true })
+        new THREE.MeshBasicMaterial({ color:0x00ff00, wireframe:true })
     );
     Tetris.scene.add(boundingBox);
 
