@@ -84,7 +84,7 @@ Tetris.camera.lookAt(new THREE.Vector3(0, -300, 450));
     var boundingBoxConfig = {
         width:360,
         height:360,
-        depth:600,
+        depth:1200,
         splitX:6,
         splitY:6,
         splitZ:20
