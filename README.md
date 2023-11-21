@@ -1,30 +1,7 @@
-# Tetris Game
+If you'd like to have original soundtrack in game go to http://www.youtube-mp3.org/ (or similar) and use link http://www.youtube.com/watch?v=NmCCQxVBfyM
 
-A simple Tetris game implemented in Python using Pygame.
+Downloaded mp3 ought to be renamed to tetris.mp3 and placed in music folder. ACTA is coming and I'm not going to risk sharing any copyrighted content :)
 
-## Table of Contents
+To play the game use http://fridek.github.com/Threejs-Tetris/
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Controls](#controls)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-This project is a classic Tetris game implemented in Python using the Pygame library. The game provides a nostalgic experience for those familiar with the iconic block-stacking game.
-
-## Features
-
-- Classic Tetris gameplay with falling tetrominoes.
-- Scoring system based on completed lines.
-- User-friendly controls for moving, rotating, and dropping tetrominoes.
-
-## Installation
-
-To run the Tetris game, make sure you have Python and Pygame installed. You can install Pygame using the following command:
-
-```bash
-pip install pygame
+Tutorial based on the game http://www.smashinglabs.pl/three-js-tetris-tutorial
