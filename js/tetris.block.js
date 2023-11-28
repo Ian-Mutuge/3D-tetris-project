@@ -60,6 +60,12 @@ Tetris.Block.generate = function () {
         Tetris.Block.shape[i] = Tetris.Utils.cloneVector(Tetris.Block.shapes[type][i]);
     }
 
+
+  const texture = THREE.ImageUtils.loadTexture("js/wood_floor_diff_4k.jpg", undefined, function () {
+    console.log("Texture loaded successfully");
+});
+
+
     geometry = new THREE.CubeGeometry(Tetris.blockSize, Tetris.blockSize, Tetris.blockSize);
     for (i = 1; i < Tetris.Block.shape.length; i++) {
         tmpGeometry = new THREE.Mesh(new THREE.CubeGeometry(Tetris.blockSize, Tetris.blockSize, Tetris.blockSize));
@@ -68,10 +74,10 @@ Tetris.Block.generate = function () {
         THREE.GeometryUtils.merge(geometry, tmpGeometry);
     }
 
-    Tetris.Block.mesh = THREE.SceneUtils.createMultiMaterialObject(geometry, [
-        new THREE.MeshBasicMaterial({color:0x000000, shading:THREE.FlatShading, wireframe:true, transparent:true}),
-        new THREE.MeshBasicMaterial({color:0xff0000})
-    ]);
+  // Use a single material for the entire mesh
+        const meshMaterial = new THREE.MeshBasicMaterial({ map: texture, color: 0xffffff }); // You can adjust color and other properties
+        Tetris.Block.mesh = new THREE.Mesh(geometry, meshMaterial);
+
 
     // initial position
     Tetris.Block.position = {x:Math.floor(Tetris.boundingBoxConfig.splitX / 2) - 1, y:Math.floor(Tetris.boundingBoxConfig.splitY / 2) - 1, z:15};
