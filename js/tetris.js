@@ -50,7 +50,7 @@ Tetris.init = function () {
     Tetris.sounds["gameover"] = document.getElementById("audio_gameover");
     Tetris.sounds["score"] = document.getElementById("audio_score");
 
-    Tetris.sounds["theme"].play();
+
     // set the scene size
     var WIDTH = window.innerWidth,
         HEIGHT = window.innerHeight;
@@ -119,7 +119,7 @@ Tetris.start = function () {
     Tetris.pointsDOM = document.getElementById("points");
     Tetris.pointsDOM.style.display = "block";
 
-    Tetris.sounds["theme"].pause();
+    Tetris.sounds["theme"].play();
 
     Tetris.Block.generate();
     Tetris.animate();
