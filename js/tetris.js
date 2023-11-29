@@ -275,7 +275,7 @@ window.addEventListener('keydown', function (event) {
             break;
     }
 }, false);
-function resumeGame() {
+function continueGame() {
     // Hide the pause popup
     document.getElementById("pause_popup").style.display = "none";
 
