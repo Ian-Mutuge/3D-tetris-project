@@ -150,8 +150,7 @@ button {
     textureRadios.forEach(function (radio) {
       radio.addEventListener("change", function () {
         selectedTexture = this.value;
-        // Regenerate the block with the new texture
-        Tetris.Block.generate();
+
       });
     });
   });
