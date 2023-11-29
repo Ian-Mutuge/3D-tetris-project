@@ -96,7 +96,7 @@ Tetris.camera.lookAt(new THREE.Vector3(0, -300, 450));
 
     var boundingBox = new THREE.Mesh(
         new THREE.CubeGeometry(boundingBoxConfig.width, boundingBoxConfig.height, boundingBoxConfig.depth, boundingBoxConfig.splitX, boundingBoxConfig.splitY, boundingBoxConfig.splitZ),
-        new THREE.MeshBasicMaterial({ color:0x00ff00, wireframe:true })
+        new THREE.MeshBasicMaterial({ color: 0xd3d3d3, wireframe: true, opacity: 0.1 })
     );
     Tetris.scene.add(boundingBox);
 
@@ -237,30 +237,31 @@ window.addEventListener('keydown', function (event) {
 
     switch (key) {
         case 49: // 1
-            Tetris.camera.position.set(0, -600, 900);
-            Tetris.camera.lookAt(new THREE.Vector3(0, -300, 450));
+            Tetris.camera.position.set(0, -300, 900);
+            Tetris.camera.lookAt(new THREE.Vector3(0, -150, 400));
             break;
         case 50: // 2
-            Tetris.camera.position.set(-600, 0, 450);
-            Tetris.camera.lookAt(new THREE.Vector3(300, 0, 225));
+           Tetris.camera.position.set(800, -50, 500);
+           Tetris.camera.lookAt(new THREE.Vector3(-300, 0, 0));
             break;
         case 51: // 3
-            Tetris.camera.position.set(0, 600, 900);
+            Tetris.camera.position.set(0, 500, 900);
             Tetris.camera.lookAt(new THREE.Vector3(0, 300, 450));
             break;
         case 52: // 4
-            Tetris.camera.position.set(600, 0, 450);
+            Tetris.camera.position.set(-600, 0, 450);
             Tetris.camera.lookAt(new THREE.Vector3(-300, 0, 225));
             break;
 
         case 48: // 0
           Tetris.camera.position.set(0, 0, 600);
-Tetris.camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-
+          Tetris.camera.lookAt(new THREE.Vector3(0, 0, 0));
+          break;
+        case 57: // 9
+            // Set the position and lookAt for the bottom view
+            Tetris.camera.position.set(0, 0, -1200);
+            Tetris.camera.lookAt(new THREE.Vector3(0, 0, 0));
             break;
-
-
         case 27: // Esc key
             if (Tetris.gameOver) {
                 // Game is already over, do nothing
