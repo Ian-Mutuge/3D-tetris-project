@@ -6,7 +6,7 @@ Welcome to our 3D game developed by a team of four talented students from Strath
 
 ## Game Overview
 
-Our game is an action-packed adventure set in a fantasy world filled with challenges and excitement. Players will embark on a quest to navigate through various levels, encountering obstacles, enemies, and puzzles along the way. The game offers stunning visuals and engaging gameplay to keep you entertained for hours.
+Our game is an action-packed adventure set in a fantasy world filled with challenges and excitement. Players will embark on a quest to navigate through various levels, encountering obstacles, enemies, and puzzles along the way. The game offers stunning visuals and engaging gameplay to keep you entertained for hours. 
 
 ## Features
 
@@ -14,15 +14,11 @@ Our game is an action-packed adventure set in a fantasy world filled with challe
    - Utilizes the power of Three.js to create immersive and visually appealing environments.
    - Detailed textures, lighting effects, and animations for an engaging experience.
 
-### 2. Multiple Levels
-   - Explore diverse and challenging levels, each with its unique design and obstacles.
-   - Progress through the game by overcoming hurdles and unlocking new stages.
-
-### 3. Interactive Gameplay
+### 2. Interactive Gameplay
    - Engage with interactive elements within the game environment.
    - Solve puzzles, defeat enemies, and collect rewards to advance further.
 
-### 4. User-Friendly Controls
+### 3. User-Friendly Controls
    - Intuitive controls for easy navigation and gameplay.
    - Enjoy a seamless gaming experience with responsive controls.
 
@@ -30,7 +26,7 @@ Our game is an action-packed adventure set in a fantasy world filled with challe
 
 To play our game, follow these simple steps:
 1. **Installation**: Ensure you have a compatible web browser that supports WebGL.
-   - Clone this repo and simply run the index.html file.
+   - '''Clone this repo and simply run the index.html file.
 2. **Accessing the Game**: Visit the provided URL or launch the game from your preferred platform.
 3. **Controls**: Use the keyboard or mouse to control the player character.
 4. **Objective**: Navigate through levels, solve puzzles, defeat enemies, and reach the final goal.
