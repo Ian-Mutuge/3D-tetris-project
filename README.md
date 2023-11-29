@@ -25,8 +25,11 @@ Our game is an action-packed adventure set in a fantasy world filled with challe
 ## How to Play
 
 To play our game, follow these simple steps:
-1. **Installation**: Ensure you have a compatible web browser that supports WebGL.
-   - '''Clone this repo and simply run the index.html file.
+1. **Installation**: Ensure you have a compatible web browser that supports WebGL. Clone this repo and simply run the index.html file
+  
+
+       Git clone https://github.com/Ian-Mutuge/3D-tetris-project.git
+   
 2. **Accessing the Game**: Visit the provided URL or launch the game from your preferred platform.
 3. **Controls**: Use the keyboard or mouse to control the player character.
 4. **Objective**: Navigate through levels, solve puzzles, defeat enemies, and reach the final goal.
