@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to our 3D game developed by a team of four talented students from Strathmore University. This game is built using Three.js, a popular JavaScript library for creating 3D graphics on the web. Get ready to immerse yourself in a thrilling gaming experience!
+Welcome to our 3D Tetris game developed by a team of five talented students from Strathmore University. This game seeks to improve on 2D tetris and add 3D elements to it. This game is built using Three.js, a popular JavaScript library for creating 3D graphics on the web. 
 
 ## Game Overview
 
@@ -25,20 +25,25 @@ Our game is an action-packed adventure set in a fantasy world filled with challe
 ## How to Play
 
 To play our game, follow these simple steps:
-1. **Installation**: Ensure you have a compatible web browser that supports WebGL. Clone this repo and simply run the index.html file
+1. *Installation*: Ensure you have a compatible web browser that supports WebGL. Clone this repo using the command:
   
 
        Git clone https://github.com/Ian-Mutuge/3D-tetris-project.git
-   
-2. **Accessing the Game**: Visit the provided URL or launch the game from your preferred platform.
-3. **Controls**: Use the keyboard or mouse to control the player character.
-4. **Objective**: Navigate through levels, solve puzzles, defeat enemies, and reach the final goal.
+
+2. Navigate to the repo using the command :
+  
+
+       cd C:\Users\admin\Documents\GitHub\3D-tetris-project
+
+3. Open the index.html file using either Chrome,Firefox, Microsoft Edge or Safari.
+4. *Controls*: Use the keyboard to control the falling blocks.
+
 
 ## Technologies Used
 
-- **Three.js**: Framework for creating 3D graphics in the browser.
-- **JavaScript**: Programming language used for game logic.
-- **HTML/CSS**: Front-end development for user interface and design.
+- *Three.js*: Framework for creating 3D graphics in the browser.
+- *JavaScript*: Programming language used for game logic.
+- *HTML/CSS*: Front-end development for user interface and design.
 
 ## Contribution and Feedback
 
@@ -46,7 +51,7 @@ We welcome contributions and feedback to improve our game. If you have any sugge
 
 ## About US
 
-We are a group of students from Starthmore Unoversity Kenya. It was a good experience collaborating. 
+We are a group of students from Strathmore University Kenya. It was a good experience collaborating. 
 
 [Samuel Kiarie](https://github.com/zeussam) 
 
@@ -64,4 +69,3 @@ We are a group of students from Starthmore Unoversity Kenya. It was a good exper
 This game is licensed under [Creative Commons License](https://creativecommons.org/) and is available for personal use.
 
 Thank you for playing our game! We hope you enjoy the adventure.
-
