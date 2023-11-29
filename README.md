@@ -48,10 +48,15 @@ We welcome contributions and feedback to improve our game. If you have any sugge
 ## About US
 
 We are a group of students from Starthmore Unoversity Kenya. It was a good experience collaborating. 
+
 [Samuel Kiarie](https://github.com/zeussam) 
+
 [Jay Patel](https://github.com/Jay254p)
+
 [Ian Mutuge](https://github.com/Ian-Mutuge)
+
 [Martin Tonui](https://github.com/tonuimartin)
+
 [Kelvin Mugambi](https://github.com/SpirkJuniour)
 
 
