@@ -1,4 +1,4 @@
-# Strathmore University 3D Game using Three.js and WEB-GL
+# 3D Tetris Game using Three.js and WEB-GL
 
 ## Introduction
 

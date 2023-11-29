@@ -48,8 +48,12 @@ Tetris.Block.shapes = [
 
 Tetris.Block.position = {};
 
+ var selectedTexture = "wooden";
+ var initialized = false;
+
 
 Tetris.Block.generate = function () {
+
     var geometry, tmpGeometry, i;
 
     var type = Math.floor(Math.random() * (Tetris.Block.shapes.length));
@@ -60,11 +64,10 @@ Tetris.Block.generate = function () {
         Tetris.Block.shape[i] = Tetris.Utils.cloneVector(Tetris.Block.shapes[type][i]);
     }
 
-
-  const texture = THREE.ImageUtils.loadTexture("js/wood_floor_diff_4k.jpg", undefined, function () {
-    console.log("Texture loaded successfully");
-});
-
+ var textureUrl = selectedTexture === "wooden" ? "js/wood_floor_diff_4k.jpg" : "js/green_metal_rust_diff_4k.jpg";
+    const texture = THREE.ImageUtils.loadTexture(textureUrl, undefined, function () {
+        console.log("Texture loaded successfully");
+    });
 
     geometry = new THREE.CubeGeometry(Tetris.blockSize, Tetris.blockSize, Tetris.blockSize);
     for (i = 1; i < Tetris.Block.shape.length; i++) {
